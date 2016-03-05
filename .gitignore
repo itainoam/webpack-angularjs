@@ -1,5 +1,5 @@
 .idea
-.build
+.dist
 .libs
 node_modules
 .bower

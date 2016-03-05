@@ -2,21 +2,18 @@
 ## Prerequisites
 You need to have installed [Node.js and npm](https://docs.npmjs.com/getting-started/installing-node) on your system.
 
-## How to install
-After that run these commands in root directory to install all needed dependencies:
-
-```
-npm install -g tsd typescript gulp bower
-npm install
-```
-
-## How to build and run
+## How to run
 Just to build this application, run
 ```
+npm install
 npm build
 ```
 
 If you want to watch for changes while developing run
 ```
+npm install
 npm watch-server
 ```
+
+### Note
+There are couple of dependencies which might not be needed in both npm and bower, such as RxJs, Lodash, patternfly. These are just for testing purposes. 
