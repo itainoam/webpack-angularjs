@@ -15,18 +15,10 @@
   ],
   "license": "MIT",
   "ignore": [
-    "node_modules",
-    "bower_components",
-    ".libs",
-    ".tsd",
-    ".bower",
-    ".babelrc",
-    ".bowerrc",
-    "*.json",
-    "webpack.*",
-    "test",
-    "tests",
-    "src"
+    "*",
+    "!.dist",
+    "!.dist/js",
+    "!.dist/js/*"
   ],
   "dependencies": {
     "rxjs": "^4.0.8",
