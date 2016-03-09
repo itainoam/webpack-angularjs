@@ -2,6 +2,7 @@
 .libs
 .dist/index.html
 vendor.js
+*.map
 node_modules
 .bower
 .tsd
