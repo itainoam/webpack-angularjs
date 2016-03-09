@@ -1,4 +1,4 @@
-# webpack-gulp-angularjs
+# webpack-angularjs
 Seed for building angularJs application written in typescript using just webpack.
 
 Application is building with separate webpack config webpack.config.js and vendor libs are packed with
