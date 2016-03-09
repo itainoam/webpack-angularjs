@@ -45,7 +45,7 @@ module.exports = {
     resolve: {
         extensions: ['', '.ts', '.js']
     },
-    devtool: production && "source-map",
+    devtool: !production && "source-map",
     module: {
         preLoaders: [
             { test: /\.ts$/, loader: "tslint", exclude:/(node_modules|\.libs)/}
