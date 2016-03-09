@@ -2,23 +2,21 @@ var webpack = require('webpack'),
     path = require('path'),
     production = process.argv.indexOf('--production') !== -1,
     NgAnnotatePlugin = require('ng-annotate-webpack-plugin'),
+    CopyWebpackPlugin = require('copy-webpack-plugin'),
     BrowserSyncPlugin = require('browser-sync-webpack-plugin'),
+    Wiredep = require('wiredep'),
     spa = require("browser-sync-spa"),
     plugins = [
-        new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery",
-            angular: "angular",
-            "_": "lodash",
-            Rx: "rxjs"
-        }),
+        new CopyWebpackPlugin([
+            { from: __dirname + '/src/index.html', to: __dirname + '/..'}
+            ]),
         new BrowserSyncPlugin({
             host: 'localhost',
-            port: 3000,
+            port: 4000,
             server: { baseDir: [__dirname + '/.dist'] }
         }, {
             use: spa({
-                selector: "[ng-app]"
+                selector: '[ng-app]'
             })
         }),
         new webpack.optimize.DedupePlugin(),
@@ -27,16 +25,16 @@ var webpack = require('webpack'),
     ];
 
 production && plugins.push(new webpack.optimize.UglifyJsPlugin({warnings: false, minimize: true, drop_console: true}));
-
 module.exports = {
-    context: __dirname + '/src',
+    context: __dirname,
     entry: [
-        './index.ts'
+        './src/styles/static-assets.less',
+        './src/index.ts'
     ],
     output: {
-        path: __dirname + '/.dist',
+        path: __dirname + '/.dist/js',
         publicPath: '/',
-        filename: !production ? 'app.js' : 'app.min.js'
+        filename: !production ? 'miq-static-assets.js' : 'miq-static-assets.min.js'
     },
     resolve: {
         extensions: ['', '.ts', '.js']
@@ -48,14 +46,11 @@ module.exports = {
         ],
         loaders: [
             { test: /\.ts$/, loaders: ['ts-loader'], exclude:/(node_modules|\.libs)/ },
-            { test: /\.html$/, loader: "raw", exclude: /(node_modules|\.libs|\.dist|\.tsd|\.bower)/ }
+            { test: /\.html$/, loader: "raw", exclude: /(node_modules|\.libs|\.dist|\.tsd|\.bower)/ },
+            // stylesheets
+            {test: /\.less$/, exclude: /(node_modules|lib)/, loader: "style!css?sourceMap!less?sourceMap"},
+            {test: /\.css$/, loader: "style!css?sourceMap"}
         ]
     },
-    plugins: plugins,
-    externals: {
-        jquery: "jQuery",
-        angular: "angular",
-        lodash: "_",
-        rxjs: "Rx"
-    }
+    plugins: plugins
 };

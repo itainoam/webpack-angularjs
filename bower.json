@@ -5,7 +5,10 @@
     "Karel Hala <karelhala.91@gmail.com>"
   ],
   "description": "",
-  "main": "index.js",
+  "main": [
+    ".dist/js/miq-webpack-angular.js",
+    ".dist/js/miq-webpack-angular.min.js"
+  ],
   "moduleType": [
     "es6",
     "globals"

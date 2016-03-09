@@ -2,8 +2,12 @@
 ## Prerequisites
 You need to have installed [Node.js and npm](https://docs.npmjs.com/getting-started/installing-node) on your system.
 
+Then install these node packages
+```
+npm install -g tsd bower webpack gulp
+```
+
 ## How to run
-Just to build this application, run
 ```
 npm install
 npm build

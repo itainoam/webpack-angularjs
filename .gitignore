@@ -1,6 +1,6 @@
 .idea
-.dist
 .libs
+.dist/index.html
 node_modules
 .bower
 .tsd

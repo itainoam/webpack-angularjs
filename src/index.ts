@@ -1,9 +1,13 @@
 ///<reference path="tsd.d.ts"/>
+import components from './components/loader';
+import services from './services/loader';
+import GreetingService from './services/greeterService';
 
-import * as angular from 'angular';
+const app = angular.module('miQStaticAssets', []);
+components(app);
 
-const app = angular.module('myApp', ['']);
+services(app);
 
-document.write('welcome to my app');
-
-console.log(app);
+app.config((MiqGreeterProvider: GreetingService) => {
+    MiqGreeterProvider.setGreetings('MyApp is pleased to be here,');
+});

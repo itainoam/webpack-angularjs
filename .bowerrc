@@ -1,5 +1,5 @@
 {
-  "directory" : ".libs",
+  "directory" : ".dist/js/.libs",
   "storage": {
     "cache" : ".bower/cache",
     "registry" : ".bower/registry"
