@@ -10,6 +10,10 @@ var webpack = require('webpack'),
         new CopyWebpackPlugin([
             { from: __dirname + '/src/index.html', to: __dirname + '/..'}
             ]),
+        new webpack.ProvidePlugin({
+            angular: "angular",
+            '_': "lodash"
+        }),
         new BrowserSyncPlugin({
             host: 'localhost',
             port: 4000,
@@ -27,10 +31,12 @@ var webpack = require('webpack'),
 production && plugins.push(new webpack.optimize.UglifyJsPlugin({warnings: false, minimize: true, drop_console: true}));
 module.exports = {
     context: __dirname,
-    entry: [
-        './src/styles/static-assets.less',
-        './src/index.ts'
-    ],
+    entry: {
+        app:[
+            './src/styles/static-assets.less',
+            './src/index.ts'
+        ]
+    },
     output: {
         path: __dirname + '/.dist/js',
         publicPath: '/',
@@ -39,7 +45,7 @@ module.exports = {
     resolve: {
         extensions: ['', '.ts', '.js']
     },
-    devtool: "source-map",
+    devtool: production && "source-map",
     module: {
         preLoaders: [
             { test: /\.ts$/, loader: "tslint", exclude:/(node_modules|\.libs)/}
@@ -52,5 +58,8 @@ module.exports = {
             {test: /\.css$/, loader: "style!css?sourceMap"}
         ]
     },
-    plugins: plugins
+    plugins: plugins,
+    externals: {
+        "angular": "angular"
+    }
 };

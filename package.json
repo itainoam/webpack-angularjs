@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "start": "webpack --watch",
+    "start": "webpack --config webpack.vendor.config.js && webpack --watch",
     "postinstall": "bower install && tsd install && webpack"
   },
   "repository": {
@@ -30,10 +30,6 @@
     "browser-sync-webpack-plugin": "^1.0.1",
     "copy-webpack-plugin": "^1.1.1",
     "css-loader": "^0.23.1",
-    "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-load-plugins": "^1.2.0",
-    "gulp-util": "^3.0.7",
     "less": "^2.6.1",
     "less-loader": "^2.2.2",
     "lodash": "^4.6.1",
@@ -49,7 +45,6 @@
     "webpack": "^1.12.14",
     "webpack-dev-middleware": "^1.5.1",
     "webpack-dev-server": "^1.14.1",
-    "webpack-hot-middleware": "^2.9.1",
-    "wiredep": "^3.0.0"
+    "webpack-hot-middleware": "^2.9.1"
   }
 }

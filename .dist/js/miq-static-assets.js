@@ -463,7 +463,7 @@
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	/* WEBPACK VAR INJECTION */(function(angular) {"use strict";
 	///<reference path="tsd.d.ts"/>
 	var loader_1 = __webpack_require__(8);
 	var loader_2 = __webpack_require__(11);
@@ -474,6 +474,7 @@
 	    MiqGreeterProvider.setGreetings('MyApp is pleased to be here,');
 	}]);
 
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ },
 /* 10 */
@@ -514,6 +515,11 @@
 	};
 
 
+/***/ },
+/* 12 */
+/***/ function(module, exports) {
+
+	module.exports = angular;
+
 /***/ }
 /******/ ]);
-//# sourceMappingURL=miq-static-assets.js.map

@@ -1,6 +1,7 @@
 .idea
 .libs
 .dist/index.html
+vendor.js
 node_modules
 .bower
 .tsd
