@@ -1,5 +1,6 @@
 {
   "name": "webpack-angularjs",
+  "version" : "0.0.1",
   "homepage": "https://github.com/karelhala/webpack-gulp-angularjs",
   "authors": [
     "Karel Hala <karelhala.91@gmail.com>"
