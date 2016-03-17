@@ -11,7 +11,7 @@ export default class GreetingService implements ng.IServiceProvider {
     };
 
     public greetingsFromService(): string {
-        return this.greetings + ' from Service itself';
+        return this.greetings + ' from Service itself, you can even enable bower linking?';
     }
 
     public setGreetings(greetings): void {

@@ -22,7 +22,5 @@
     "!.dist/js/*"
   ],
   "dependencies": {
-    "rxjs": "^4.0.8",
-    "angular-bootstrap": "^1.2.2"
   }
 }

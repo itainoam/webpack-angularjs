@@ -1,4 +1,5 @@
 var webpack = require('webpack'),
+    path = require('path'),
     plugins = [
         new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.js")
         ];

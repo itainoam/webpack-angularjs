@@ -5,7 +5,6 @@ import GreetingService from './services/greeterService';
 
 const app = angular.module('miQStaticAssets', []);
 components(app);
-
 services(app);
 
 app.config((MiqGreeterProvider: GreetingService) => {

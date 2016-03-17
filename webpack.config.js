@@ -4,7 +4,7 @@ var webpack = require('webpack'),
     NgAnnotatePlugin = require('ng-annotate-webpack-plugin'),
     CopyWebpackPlugin = require('copy-webpack-plugin'),
     BrowserSyncPlugin = require('browser-sync-webpack-plugin'),
-    Wiredep = require('wiredep'),
+    ExtractTextPlugin = require("extract-text-webpack-plugin"),
     spa = require("browser-sync-spa"),
     plugins = [
         new CopyWebpackPlugin([
@@ -23,6 +23,7 @@ var webpack = require('webpack'),
                 selector: '[ng-app]'
             })
         }),
+        new ExtractTextPlugin("../css/miq-static-assets.css"),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
         new NgAnnotatePlugin({add: true})
@@ -54,8 +55,8 @@ module.exports = {
             { test: /\.ts$/, loaders: ['ts-loader'], exclude:/(node_modules|\.libs)/ },
             { test: /\.html$/, loader: "raw", exclude: /(node_modules|\.libs|\.dist|\.tsd|\.bower)/ },
             // stylesheets
-            {test: /\.less$/, exclude: /(node_modules|lib)/, loader: "style!css?sourceMap!less?sourceMap"},
-            {test: /\.css$/, loader: "style!css?sourceMap"}
+            { test: /\.less$/, exclude: /(node_modules|lib)/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
+            { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader") }
         ]
     },
     plugins: plugins,
