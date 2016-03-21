@@ -2,8 +2,7 @@
   "name": "webpack-angularjs",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
-  "private": true,
+  "main": ".dist/js/miq-static-assets.js",
   "scripts": {
     "start": "webpack --config webpack.vendor.config.js && webpack --watch",
     "postinstall": "bower install && tsd install && webpack"

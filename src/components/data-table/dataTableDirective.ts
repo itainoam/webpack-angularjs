@@ -9,6 +9,7 @@ export default class DataTable implements ng.IDirective {
     public scope: any = {};
     public bindToController: any = {
         onRowClick: '&',
+        onItemSelected: '&',
         data: '=',
         columns: '='
     };

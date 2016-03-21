@@ -8,6 +8,10 @@ export default class ToolbarController {
     public onItemClick(item: any) {
         if (item.hasOwnProperty('actionUrl')) {
             this.$location.path(item.actionUrl);
+        } else if (item.hasOwnProperty('redirectUrl')) {
+            this.$window.location = item.redirectUrl;
+        } else if (item.hasOwnProperty('actionFunction')) {
+            item.actionFunction();
         }
     }
 }

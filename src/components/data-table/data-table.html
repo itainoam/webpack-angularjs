@@ -21,6 +21,7 @@
         <td ng-repeat="(columnKey, column) in vm.columns"
             ng-class="vm.getColumnClass(column)">
             <input ng-if="vm.isCheckbox(row, columnKey)"
+                   ng-click="vm.onRowSelected($event)"
                    onclick="event.stopPropagation();"
                    type="checkbox"
                    ng-model="row.selected"

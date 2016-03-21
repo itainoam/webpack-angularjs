@@ -5,6 +5,7 @@ export default class DataTableController {
     public sortType: any = -1;
     public sortReverse: boolean;
     public onRowClick: (args: {$event: JQueryEventObject, rowData: any}) => void;
+    public onItemSelected: () => void;
     public resPerPage: number = 10;
     public resCurPage: number = 0;
 
@@ -54,7 +55,7 @@ export default class DataTableController {
     }
 
     public getSortTypeAsText() {
-        const selectedFilter = _.find(this.columns, {col_idx: this.sortType});
+        const selectedFilter: any = _.find(this.columns, {col_idx: this.sortType});
         if (selectedFilter) {
             return selectedFilter.text;
         }
@@ -64,5 +65,12 @@ export default class DataTableController {
         _.each(this.data, (oneItem: any) => {
             oneItem.selected = isChecked;
         });
+        this.onItemSelected();
+    }
+
+    public onRowSelected($event) {
+        $event.stopPropagation();
+        console.log(this);
+        this.onItemSelected();
     }
 }
